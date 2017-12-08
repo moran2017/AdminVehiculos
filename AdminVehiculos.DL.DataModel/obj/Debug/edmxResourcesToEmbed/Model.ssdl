@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UPCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Conductor">
+    <Key>
+      <PropertyRef Name="ConductorId" />
+    </Key>
+    <Property Name="ConductorId" Type="int" Nullable="false" />
+    <Property Name="DNI" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'UPC.dbo.Login' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Codigo" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="Rol" />
+    </Key>
+    <Property Name="UsuarioId" Type="int" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="MarcaId" />
+    </Key>
+    <Property Name="MarcaId" Type="int" Nullable="false" />
+    <Property Name="Acronimo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehiculos">
+    <Key>
+      <PropertyRef Name="VehiculoId" />
+    </Key>
+    <Property Name="VehiculoId" Type="int" Nullable="false" />
+    <Property Name="Placa" Type="varchar" MaxLength="10" />
+    <Property Name="kilometraje" Type="int" />
+    <Property Name="MarcaId" Type="int" />
+    <Property Name="ConductorId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Vehiculos_Conductor">
+    <End Role="Conductor" Type="Self.Conductor" Multiplicity="0..1" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conductor">
+        <PropertyRef Name="ConductorId" />
+      </Principal>
+      <Dependent Role="Vehiculos">
+        <PropertyRef Name="ConductorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehiculos_Marca">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="MarcaId" />
+      </Principal>
+      <Dependent Role="Vehiculos">
+        <PropertyRef Name="MarcaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UPCModelStoreContainer">
+    <EntitySet Name="Conductor" EntityType="Self.Conductor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Login].[UsuarioId] AS [UsuarioId], 
+    [Login].[Codigo] AS [Codigo], 
+    [Login].[Password] AS [Password], 
+    [Login].[Rol] AS [Rol]
+    FROM [dbo].[Login] AS [Login]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Vehiculos_Conductor" Association="Self.FK_Vehiculos_Conductor">
+      <End Role="Conductor" EntitySet="Conductor" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehiculos_Marca" Association="Self.FK_Vehiculos_Marca">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

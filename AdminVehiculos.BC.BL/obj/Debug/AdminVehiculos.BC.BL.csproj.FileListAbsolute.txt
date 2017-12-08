@@ -1,0 +1,14 @@
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\AdminVehiculos.BC.BL.dll.config
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\AdminVehiculos.BC.BL.dll
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\AdminVehiculos.BC.BL.pdb
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\AdminVehiculos.DL.DataModel.dll
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\EntityFramework.dll
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\AdminVehiculos.DL.DataModel.pdb
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\AdminVehiculos.DL.DataModel.dll.config
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\EntityFramework.xml
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\obj\Debug\AdminVehiculos.BC.BL.csprojResolveAssemblyReference.cache
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\obj\Debug\AdminVehiculos.BC.BL.csproj.CoreCompileInputs.cache
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\obj\Debug\AdminVehiculos.BC.BL.dll
+C:\Users\Moran\source\repos\AdminVehiculos\AdminVehiculos.BC.BL\obj\Debug\AdminVehiculos.BC.BL.pdb
